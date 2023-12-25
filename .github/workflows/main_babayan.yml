@@ -8,6 +8,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'app.py'
+      - 'functions.py'
+      - 'startup.txt'
+      - 'requirements.txt'
   workflow_dispatch:
 
 jobs:
