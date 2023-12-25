@@ -38,8 +38,8 @@ signature_verifier = SignatureVerifier(SLACK_SIGNING_SECRET)
 flask_app = Flask(__name__)
 handler = SlackRequestHandler(app)
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-#slack_client = WebClient(token=os.environ["SLACK_BOT_TOKEN"])
-#slack_client.chat_postMessage(channel="#general", text="Hi, bit***!")
+slack_client = WebClient(token=os.environ["SLACK_BOT_TOKEN"])
+slack_client.chat_postMessage(channel="#general", text="Hi, bit***!")
 
 
 def require_slack_verification(f):
@@ -138,3 +138,4 @@ def slack_events():
 if __name__ == "__main__":
     logging.info("Flask app started")
     flask_app.run(host="0.0.0.0", port=8000)
+    #flask_app.run(port=5050)
