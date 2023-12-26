@@ -8,17 +8,10 @@ from flask import Flask, request, abort
 from functions import misha
 from langchain.memory import ConversationBufferMemory
 from slack_sdk.signature import SignatureVerifier
-import logging
 from functools import wraps
 import time
 import sys
 
-# Configure the logging level and format
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-    stream=sys.stdout,
-)
 
 # Load environment variables from .env file
 load_dotenv(find_dotenv())
@@ -136,6 +129,5 @@ def slack_events():
 
 # Run the Flask app
 if __name__ == "__main__":
-    logging.info("Flask app started")
     flask_app.run(host="0.0.0.0", port=8000)
     #flask_app.run(port=5050)
