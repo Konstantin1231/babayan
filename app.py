@@ -113,7 +113,6 @@ def handle_mentions(body, say):
 
 
 @flask_app.route("/slack/events", methods=["POST"])
-@require_slack_verification
 def slack_events():
     """
     Route for handling Slack events.
@@ -127,5 +126,5 @@ def slack_events():
 
 # Run the Flask app
 if __name__ == "__main__":
-    flask_app.run()
+    flask_app.run(port=8000)
     #flask_app.run(port=5050)
